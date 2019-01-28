@@ -2,7 +2,7 @@ open OUnit2
 
 
 (* https://github.com/pdonadeo/ocaml-lens/issues/11 *)
-let issue_11 ctxt =
+let issue_11 _ =
   let open Lens.Infix in
   let xs = [1; 2; 3; 4; 5] in
   let l = Lens.for_list 4 in

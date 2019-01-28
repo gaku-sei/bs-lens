@@ -5,4 +5,4 @@
 .merlin
 Session.vim
 _build
-pkg/META
+node_modules

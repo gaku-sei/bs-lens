@@ -2,21 +2,21 @@ opam-version: "1.2"
 name: "lens"
 version: "1.2.2"
 available: [ ocaml-version >= "4.04.1" ]
-maintainer: "Paolo Donadeo <p.donadeo@gmail.com>"
-authors: [ "Alessandro Strada <alessandro.strada@gmail.com>" ]
+maintainer: "COMBRIAT Kevin<japan.combriat.kevin@gmail.com>"
+authors: [ "Alessandro Strada <alessandro.strada@gmail.com>" "Paolo Donadeo <p.donadeo@gmail.com>" ]
 license: "BSD-3-clause"
 homepage: "https://github.com/pdonadeo/ocaml-lens"
 dev-repo: "https://github.com/pdonadeo/ocaml-lens.git"
 bug-reports: "https://github.com/pdonadeo/ocaml-lens/issues"
 build: [
-  ["jbuilder" "subst" "-n" name] {pinned}
-  ["jbuilder" "build" "-p" name "-j" jobs]
+  ["dune" "subst" "-n" name] {pinned}
+  ["dune" "build" "-p" name "-j" jobs]
 ]
-build-test: [["jbuilder" "runtest" "-p" name "-j" jobs]]
+build-test: [["dune" "runtest" "-p" name "-j" jobs]]
 depends: [
   "ppx_deriving" {build}
   "ppx_tools"    {build}
   "ppxfind"      {build}
-  "jbuilder"     {build}
+  "dune"         {build}
   "ounit"        {test}
 ]
