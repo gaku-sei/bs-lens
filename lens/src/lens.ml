@@ -114,7 +114,7 @@ let xmap f g l = {get= l.get |- f; set= g |- l.set}
 module Infix = struct
   let ( %^ ) = _get
 
-  let ( ^= ) l v a = _set v a l
+  let ( %^= ) l v a = _set v a l
 
   let ( ^%= ) = modify
 

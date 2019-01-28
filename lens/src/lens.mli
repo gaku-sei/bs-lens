@@ -118,7 +118,7 @@ module Infix : sig
   val ( %^ ) : 'a -> ('a, 'b) t -> 'b
   (** Get operator *)
 
-  val ( ^= ) : ('a, 'b) t -> 'b -> 'a -> 'a
+  val ( %^= ) : ('a, 'b) t -> 'b -> 'a -> 'a
   (** Set operator *)
 
   val ( ^%= ) : ('a, 'b) t -> ('b -> 'b) -> 'a -> 'a
