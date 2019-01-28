@@ -1,7 +1,5 @@
-(library
+(executable
   (name lens_ppx_deriving)
   (public_name lens.ppx_deriving)
   (libraries ppx_deriving.api)
-  (preprocess (action (run ppxfind -legacy ppx_tools.metaquot --as-pp %{input-file})))
-  (ppx_runtime_libraries lens)
-  (kind ppx_deriver))
+  (preprocess (action (run ppxfind -legacy ppx_tools.metaquot --as-pp %{input-file}))))

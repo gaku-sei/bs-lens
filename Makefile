@@ -1,7 +1,7 @@
 NPM=yarn
 ESY=esy
 
-all: esy-install yarn-install
+all: build
 
 esy-setup:
 ifeq (, $(shell which esy))
