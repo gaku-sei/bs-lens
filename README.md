@@ -1,18 +1,29 @@
-Functional Lenses
-=================
+# WARNING
+
+This repository is an attempt to adapt `lens-ocaml` to BuckleScript (including the ppx) and is still under development.
+
+The main steps are:
+
+- [x] Update jbuilder to dune
+- [ ] Use Esy
+- [ ] Use ocaml-format and "clean" the code
+- [ ] Make `lens` targets JavaScript with BuckleScript
+- [ ] Release on NPM 🎊
+
+# Functional Lenses
 
 This package provides some basic types and functions for using lenses in OCaml.
-Functional lenses are based on F# implementation in [FSharpX](https://github.com/fsharp/fsharpx). See [src/FSharpx.Extras/Lens.fs](https://github.com/fsharp/fsharpx/blob/master/src/FSharpx.Extras/Lens.fs) for the original implementation.  Written by Alessandro Strada.
+Functional lenses are based on F# implementation in [FSharpX](https://github.com/fsharp/fsharpx). See [src/FSharpx.Extras/Lens.fs](https://github.com/fsharp/fsharpx/blob/master/src/FSharpx.Extras/Lens.fs) for the original implementation. Written by Alessandro Strada.
 
 See also:
-* <http://bugsquash.blogspot.com/2011/11/lenses-in-f.html> Lenses in F#
-* <http://stackoverflow.com/questions/8179485/updating-nested-immutable-data-structures> Stackoverflow question about Updating nested immutable data structures
-* <http://stackoverflow.com/questions/5767129/lenses-fclabels-data-accessor-which-library-for-structure-access-and-mutatio> Haskell libraries for structure access and mutation
-* <http://www.youtube.com/watch?v=efv0SQNde5Q> Functional lenses for Scala by Edward Kmett on YouTube
-* <http://patternsinfp.wordpress.com/2011/01/31/lenses-are-the-coalgebras-for-the-costate-comonad/> Lenses are the coalgebras for the costate comonad by Jeremy Gibbons
 
-Examples
-========
+- <http://bugsquash.blogspot.com/2011/11/lenses-in-f.html> Lenses in F#
+- <http://stackoverflow.com/questions/8179485/updating-nested-immutable-data-structures> Stackoverflow question about Updating nested immutable data structures
+- <http://stackoverflow.com/questions/5767129/lenses-fclabels-data-accessor-which-library-for-structure-access-and-mutatio> Haskell libraries for structure access and mutation
+- <http://www.youtube.com/watch?v=efv0SQNde5Q> Functional lenses for Scala by Edward Kmett on YouTube
+- <http://patternsinfp.wordpress.com/2011/01/31/lenses-are-the-coalgebras-for-the-costate-comonad/> Lenses are the coalgebras for the costate comonad by Jeremy Gibbons
+
+# Examples
 
 First load `Lens` in utop.
 
@@ -20,7 +31,7 @@ First load `Lens` in utop.
 
 Given a couple of records
 
-``` ocaml
+```ocaml
     type car = {
         make : string;
         model: string;
@@ -42,7 +53,7 @@ Given a couple of records
 
 Create a new nested record
 
-``` ocaml
+```ocaml
     let scifi_novel = {
        name =  "Metro 2033";
        author = "Dmitry Glukhovsky";
@@ -60,7 +71,7 @@ Create a new nested record
 
 Now to construct a few lenses to access some things
 
-``` ocaml
+```ocaml
     let car_lens = {
         get = (fun x -> x.car);
         set = (fun v x -> { x with car = v })
@@ -80,14 +91,14 @@ Now to construct a few lenses to access some things
 
 Using these lenses we can modify the mileage without having to unpack the record
 
-``` ocaml
+```ocaml
     let a = compose mileage_lens (compose car_lens editor_lens) in
     _set 10 scifi_novel a;;
 ```
 
 Or using the `Infix` module we can do the same thing, only shorter.
 
-``` ocaml
+```ocaml
     _set 10 scifi_novel (editor_lens |-- car_lens |-- mileage_lens);;
 
     (* or *)
@@ -95,12 +106,11 @@ Or using the `Infix` module we can do the same thing, only shorter.
     ((editor_lens |-- car_lens |-- mileage_lens) ^= 10) @@ scifi_novel;;
 ```
 
-Ppx syntax extension
---------------------
+## Ppx syntax extension
 
 Lenses can be generated using the 'lens.ppx_deriving' plugin for [ppx_deriving](https://github.com/whitequark/ppx_deriving)
 
-``` ocaml
+```ocaml
 #require "lens.ppx_deriving";;
 
 type car = {
@@ -116,7 +126,7 @@ val car_mileage: (car, int) Lens.t
 
 The `prefix` option can be used to prefix each lens name with `lens`.
 
-``` ocaml
+```ocaml
 #require "lens.ppx_deriving";;
 
 type car = {
@@ -132,7 +142,7 @@ val lens_car_mileage: (car, int) Lens.t
 
 The `submodule` option groups all the lenses in a sub-module `Lens`.
 
-``` ocaml
+```ocaml
 #require "lens.ppx_deriving";;
 
 type car = {
@@ -150,7 +160,7 @@ end
 
 When the `prefix` and `submodule` options are combined, this is the module name which is prefixed.
 
-``` ocaml
+```ocaml
 #require "lens.ppx_deriving";;
 
 type car = {

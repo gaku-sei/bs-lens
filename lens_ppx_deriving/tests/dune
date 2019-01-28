@@ -1,0 +1,9 @@
+(executable
+  (name lens_ppx_deriving_tests)
+  (libraries lens oUnit)
+  (preprocess (pps lens.ppx_deriving)))
+
+(alias
+  (name runtest)
+  ; (deps (lens_ppx_deriving_tests.exe))
+  (action (run ${<})))

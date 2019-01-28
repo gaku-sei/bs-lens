@@ -1,0 +1,8 @@
+(executable
+  (name lens_tests)
+  (libraries lens oUnit))
+
+(alias
+  (name runtest)
+  ; (deps (lens_tests.exe))
+  (action (run ${<})))
