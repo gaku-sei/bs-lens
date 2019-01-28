@@ -5,7 +5,8 @@ This repository is an attempt to adapt `lens-ocaml` to BuckleScript (including t
 The main steps are:
 
 - [x] Update jbuilder to dune
-- [ ] Use Esy
+- [x] Use Esy
+- [ ] Set up BuckleScript
 - [ ] Use ocaml-format and "clean" the code
 - [ ] Make `lens` targets JavaScript with BuckleScript
 - [ ] Release on NPM 🎊

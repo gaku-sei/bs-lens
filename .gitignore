@@ -5,4 +5,6 @@
 .merlin
 Session.vim
 _build
+_esy
 node_modules
+*esy.lock
