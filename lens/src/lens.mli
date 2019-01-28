@@ -118,7 +118,7 @@ val xmap : ('a -> 'b) -> ('b -> 'a) -> ('c, 'a) t -> ('c, 'b) t
 (** Infix operators *)
 module Infix :
 sig
-  val ( |. ) : 'a -> ('a, 'b) t -> 'b
+  val ( %^ ) : 'a -> ('a, 'b) t -> 'b
   (** Get operator *)
 
   val ( ^= ) : ('a, 'b) t -> 'b -> 'a -> 'a

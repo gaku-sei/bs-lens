@@ -5,21 +5,19 @@
   "license": "MIT",
   "esy": {
     "build": [
-      "dune build lens/src/lens.a",
-      "dune build lens_ppx_deriving/src/lens_ppx_deriving.a"
+      "dune build -p lens"
     ]
   },
   "scripts": {
-    "clean": "rm -fr _build _esy",
     "test": "dune runtest"
   },
   "dependencies": {
     "@opam/dune": "*",
     "@opam/lambda-term": "*",
+    "@opam/lwt": "^4.0.0",
     "@opam/ppx_deriving": "*",
     "@opam/ppx_tools": "*",
     "@opam/ppxfind": "*",
-    "@opam/lwt": "^4.0.0",
     "ocaml": "~4.6.0"
   },
   "devDependencies": {
