@@ -4,5 +4,4 @@
 
 (alias
   (name runtest)
-  ; (deps (lens_tests.exe))
-  (action (run ${<})))
+  (action (run ./lens_tests.exe)))

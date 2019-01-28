@@ -5,5 +5,4 @@
 
 (alias
   (name runtest)
-  ; (deps (lens_ppx_deriving_tests.exe))
-  (action (run ${<})))
+  (action (run ./lens_ppx_deriving_tests.exe)))
