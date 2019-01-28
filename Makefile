@@ -33,3 +33,6 @@ yarn-clean:
 	rm -fr lens/node_modules lens/lib
 
 clean: esy-clean yarn-clean
+
+format:
+	esy format
