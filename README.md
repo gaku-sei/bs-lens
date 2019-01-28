@@ -7,8 +7,8 @@ The main steps are:
 - [x] Update jbuilder to dune
 - [x] Use Esy
 - [x] Set up BuckleScript
-- [ ] Use ocaml-format and "clean" the code
-- [ ] Make `lens` targets JavaScript with BuckleScript
+- [x] Use ocaml-format and "clean" the code
+- [x] Make `lens` targets JavaScript with BuckleScript
 - [ ] Release on NPM 🎊
 
 # Functional Lenses

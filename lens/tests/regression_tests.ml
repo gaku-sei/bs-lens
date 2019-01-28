@@ -1,6 +1,5 @@
 open OUnit2
 
-
 (* https://github.com/pdonadeo/ocaml-lens/issues/11 *)
 let issue_11 _ =
   let open Lens.Infix in
@@ -9,6 +8,4 @@ let issue_11 _ =
   let xs = (l -= 1) xs in
   assert_equal [1; 2; 3; 4; 4] xs
 
-let suite = "Regression test" >::: [
-  "issue_11"  >:: issue_11;
-]
+let suite = "Regression test" >::: ["issue_11" >:: issue_11]
